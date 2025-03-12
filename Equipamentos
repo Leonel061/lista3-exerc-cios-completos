@@ -1,0 +1,91 @@
+package main;
+
+public class Equipamento {
+
+public abstract class Equipamentos {
+    private String nome;
+    private double preçoAluguel;
+
+    public Equipamentos(String nome, double precoAluguel) {
+        this.nome = nome;
+        this.preçoAluguel = precoAluguel;
+    }
+    public String getNome() {
+        return nome;
+    }
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+    public double getPrecoAluguel() {
+        return preçoAluguel;
+    }
+    public void setPrecoAluguel(double precoAluguel) {
+        this.preçoAluguel = precoAluguel;
+    }
+    public abstract int definirDurabilidade();
+}  
+}
+
+package main;
+
+public class Bola extends Equipamento {
+    private String material;
+
+    public Bola(String nome, double precoAluguel, String material) {
+      
+        this.material = material;
+    }
+ 
+    public String getMaterial() {
+        return material;
+    }
+    public void setMaterial(String material) {
+        this.material = material;
+    }
+
+    public int definirDurabilidade() {
+        return 20; 
+    }
+}
+
+package main;
+
+public class Bicicleta extends Equipamento {
+    private String tipo;
+
+    public Bicicleta(String nome, double preçoAluguel, String tipo) {
+    
+        this.tipo = tipo;
+    }
+
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public int definirDurabilidade() {
+        return 50;  
+    }
+}
+
+package durabilidade;
+
+
+public class Durabilidade {
+
+
+    public static void main(String[] args) {
+ 
+
+        Bicicleta bicicleta = new Bicicleta("Bicicleta MTB", 50.0, "Montanha");
+        Bola bola = new Bola("Bola de Futebol", 15.0, "Couro");
+
+
+        System.out.println("Durabilidade da " + bicicleta.getNome() + " (" + bicicleta.getTipo() + "): " + bicicleta.definirDurabilidade() + " horas");
+        System.out.println("Durabilidade da " + bola.getNome() + " (" + bola.getMaterial() + "): " + bola.definirDurabilidade() + " horas");
+    }
+}
