@@ -1,1 +1,1 @@
-# lista3-exerc-cios-completos
+Objetivo: Praticar encapsulamento e construtores em um contexto dinâmico.
