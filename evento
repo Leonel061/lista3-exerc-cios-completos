@@ -1,0 +1,51 @@
+package participantes1;
+
+public class NewClass {
+    
+public class evento {
+
+private String nomeCompleto;
+private String Email;
+private String dataInscrição;
+
+public evento (String nomeCompleto, String Email, String dataInscrição) {
+
+this.nomeCompleto = nomeCompleto;
+this.Email = Email;
+this.dataInscrição = dataInscrição;
+}
+
+ public String getnomeCompleto() {
+        return nomeCompleto;
+    }
+
+  public String getEmail() {
+        return Email;
+    }
+ 
+  public String getdataInscrição() {
+        return dataInscrição;
+    }
+
+}
+}
+
+package participantes1;
+
+public class Participantes1 {
+
+    public static void main(String[] args) {
+String participantes = "1";
+String nomeCompleto = "leonel henrique dorregaray barra";
+String Email = "leonel@gmail.com";
+String dataInscrição = "12/03/25";      
+
+        System.out.println("participantes: " + participantes);
+        System.out.println("nome completo: " + nomeCompleto);
+        System.out.println("Email: " + Email);
+        System.out.println("data de inscrição: " + dataInscrição);
+        
+        
+    }
+    
+}
