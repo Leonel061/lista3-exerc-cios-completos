@@ -1,0 +1,71 @@
+package monitoramento;
+
+public abstract class Sensor {
+    private String localizacao;
+    private int bateria = 100;
+
+    public Sensor(String localizacao) {
+        this.localizacao = localizacao;
+    }
+
+    public String getLocalizacao() { return localizacao; }
+    public int getBateria() { return bateria; }
+    public boolean isAtivo() { return bateria > 0; }
+
+    public void setBateria(int bateria) { 
+        this.bateria = Math.max(0, Math.min(bateria, 100));
+    }
+
+    public abstract double coletarDado();
+}
+
+
+
+package monitoramento;
+
+public class SensorTemperatura extends Sensor {
+    public SensorTemperatura(String localizacao) {
+        super(localizacao);
+    }
+
+    @Override
+    public double coletarDado() {
+        return 25.5;
+    }
+}
+
+
+
+package monitoramento;
+
+public class SensorUmidade extends Sensor {
+    public SensorUmidade(String localizacao) {
+        super(localizacao);
+    }
+
+    @Override
+    public double coletarDado() {
+        return 60.0;
+    }
+}
+
+
+
+package monitoramento;
+
+public class Main {
+    public static void main(String[] args) {
+        EstacaoMonitoramento estacao = new EstacaoMonitoramento();
+        SensorTemperatura temp = new SensorTemperatura("Sala");
+        SensorUmidade umidade = new SensorUmidade("Jardim");
+
+        estacao.adicionarSensor(temp);
+        estacao.adicionarSensor(umidade);
+
+        estacao.verificarEstado();
+
+        temp.setBateria(0);
+        System.out.println("\nApós bateria descarregar:");
+        estacao.verificarEstado();
+    }
+}
