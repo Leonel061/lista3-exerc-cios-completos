@@ -1,0 +1,56 @@
+public abstract class Projeto {
+    private String titulo;
+    private String dataInicio;
+    private double orcamento;
+
+    public Projeto(String titulo, String dataInicio, double orcamento) {
+        this.titulo = titulo;
+        this.dataInicio = dataInicio;
+        this.orcamento = orcamento;
+    }
+
+    public abstract int calcularPrazo();
+}
+
+
+
+
+public class Filme extends Projeto {
+    private int duracaoMinutos;
+
+    public Filme(String titulo, String dataInicio, double orcamento, int duracaoMinutos) {
+        super(titulo, dataInicio, orcamento);
+        this.duracaoMinutos = duracaoMinutos;
+    }
+
+    @Override
+    public int calcularPrazo() {
+        return duracaoMinutos / 10;
+    }
+}
+
+public class Musica extends Projeto {
+    private int numeroNotas;
+
+    public Musica(String titulo, String dataInicio, double orcamento, int numeroNotas) {
+        super(titulo, dataInicio, orcamento);
+        this.numeroNotas = numeroNotas;
+    }
+
+    @Override
+    public int calcularPrazo() {
+        return numeroNotas / 50;
+    }
+}
+
+
+
+public class Main {
+    public static void main(String[] args) {
+        Filme filme = new Filme("Aventura Espacial", "01/03/2025", 50000, 120);
+        Musica musica = new Musica("Sinfonia Azul", "02/03/2025", 10000, 500);
+
+        System.out.println("Prazo do filme: " + filme.calcularPrazo() + " dias");
+        System.out.println("Prazo da música: " + musica.calcularPrazo() + " dias");
+    }
+}
